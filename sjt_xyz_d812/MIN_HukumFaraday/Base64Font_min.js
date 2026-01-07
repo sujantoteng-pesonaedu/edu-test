@@ -1,0 +1,1 @@
+function Base64Font(c){var a=c;this.load=function(g,e){var f={};if(e.stretch){f.stretch=e.stretch}if(e.style){f.style=e.style}if(e.weight){f.weigth=e.weight}var d=new FontFace(e.family,"url("+e.font+")",f);waitFont=false;d.load().then(function(h){document.fonts.add(h);b("loaded",{id:g,family:h.family})})};function b(e,d){if(a!=null){a.apply(this,[e,d])}}};
