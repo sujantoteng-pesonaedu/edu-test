@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<title>Molecule 3D</title>
+
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+	 
+	<style type="text/css">
+	</style>
+
+	<style>
+		html, body {height:100%; width:100%; margin:0;}
+		canvas {touch-action:none;}
+	</style>
+	
+	<head>
+			
+			<script src="Molecule3D_min.js"></script>
+			<script type="text/javascript">
+				window.addEventListener("load", eventWindowLoaded, false);
+				function eventWindowLoaded() {
+					addLanguageMenu();
+
+					var m3d = new Molecule3D();
+					m3d.setLanguage(getLanguageId());
+					m3d.resetStorage(false);
+					m3d.showLoading(false);
+					m3d.setGradasiBola(true);  // <----- gradasi bola, untuk test di iOS
+					m3d.start("content0","auto");
+				}
+				window.oncontextmenu = function(event) {
+					 event.preventDefault();
+					 event.stopPropagation();
+					 return false;
+				};
+			</script> 
+
+            <script type='text/javascript'>function addLanguageMenu(){var e=document.getElementById('content0');e.style.height='95%';var a="<div id='languageDiv'  style='	display: table; background-color:#efefef; position:relative; width: 100%; height:5%; margin-right: auto; margin-left: auto'	><form id='languageForm' style='display: table-cell; vertical-align: middle; padding-left: 10px'><input id='id' type='radio' name='lang' onclick='radioClicked(this.value);' value='id'/><label for='id'> Bahasa</label><input id='en' type='radio' name='lang' onclick='radioClicked(this.value);' value='en'/><label for='en'> English</label><input id='zh' type='radio' name='lang' onclick='radioClicked(this.value);' value='zh'/><label for='zh'> 简体中文</label><input id='zh-tw' type='radio' name='lang' onclick='radioClicked(this.value);' value='zh-tw'/><label for='zh-tw'> 繁體中文</label></form></div>";document.getElementsByTagName('body')[0].innerHTML+=a}function radioClicked(e){writeLocalStorage(languageKey,e);var a=new Date;a.setTime(a.getTime()+1728e9);var t=a.toGMTString();document.cookie=languageKey+'='+e+'; expires='+t+'; path=/',window.location.reload()}function writeLocalStorage(e,a){try{'undefined'!=typeof Storage&&localStorage.setItem(e,a)}catch(t){}}function readCookie(n){for(var r=n+'=',t=document.cookie.split(';'),e=0;e<t.length;e++){for(var i=t[e];' '==i.charAt(0);)i=i.substring(1,i.length);if(0==i.indexOf(r))return i.substring(r.length,i.length)}return null}function getLanguageId(){var e='en';var temp;try{'undefined'!=typeof Storage&&(temp=localStorage.getItem(languageKey),null!=temp&&(e=temp))}catch(a){}return null==temp&&(temp=readCookie(languageKey),null!=temp&&(e=temp)),document.forms.languageForm[e].checked=!0,e}const languageKey='AmazingEdu_DE_language';</script>
+	</head>	
+  
+	<body>
+
+		<div id="content0" unselectable="on";
+				 style="
+					 overflow: hidden;
+					 background-color:#ffffff;
+					 position:relative;
+					 width: 100%;
+					 height:100%;
+					 margin-right: auto;
+					 margin-left: auto"
+			>
+		</div>
+		
+	  </body>
+</html>
